@@ -1,0 +1,98 @@
+{
+    "root": true,
+    "ignorePatterns": [],
+    "settings": {
+      "import/resolver": {
+        "typescript": {}
+      }
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "project": [
+        "./tsconfig.json"
+      ],
+      "tsconfigRootDir": "./"
+    },
+    "plugins": [
+      "@typescript-eslint",
+      "simple-import-sort"
+    ],
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "overrides": [
+      {
+        "files": [
+          "*.ts",
+          "*.js"
+        ],
+        "extends": [
+          "eslint:recommended",
+          "plugin:@typescript-eslint/recommended",
+          "plugin:@typescript-eslint/recommended-requiring-type-checking",
+          "plugin:import/recommended"
+        ],
+        "rules": {
+          "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
+          "quotes": [
+            2,
+            "single",
+            {
+              "avoidEscape": true
+            }
+          ],
+          "comma-dangle": [
+            "error",
+            {
+              "arrays": "always-multiline",
+              "objects": "always-multiline",
+              "imports": "always-multiline",
+              "exports": "always-multiline",
+              "functions": "always-multiline"
+            }
+          ],
+          "semi": [
+            "error",
+            "always"
+          ],
+          "indent": [
+            "error",
+            4,
+            {
+              "SwitchCase": 1
+            }
+          ],
+          "eol-last": [
+            "error",
+            "always"
+          ],
+          "object-curly-spacing": [
+            "error",
+            "always"
+          ],
+          "array-bracket-spacing": [
+            "error",
+            "always"
+          ],
+          "no-trailing-spaces": "error",
+          "comma-spacing": [
+            "error",
+            {
+              "before": false,
+              "after": true
+            }
+          ],
+          "simple-import-sort/imports": [
+            "error",
+            {
+              "groups": [
+                ["^@(?!(lib)\\b).*", "^[a-zA-Z].*"],
+                ["^@.*", ".*"]
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }

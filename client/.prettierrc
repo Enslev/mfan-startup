@@ -1,0 +1,27 @@
+{
+  "semi": true,
+  "singleQuote": true,
+  "printWidth": 120,
+  "tabWidth": 2,
+  "tailwindStylesheet": "./src/styles.css",
+  "plugins": [
+    "prettier-plugin-organize-attributes",
+    "prettier-plugin-tailwindcss"
+  ],
+  "attributeGroups": [
+    "$ANGULAR_ELEMENT_REF",
+    "$ID",
+    "^\\[id\\]$",
+    "$CLASS",
+    "^\\[ngClass",
+    "$ANGULAR_ANIMATION",
+    "$ANGULAR_ANIMATION_INPUT",
+    "$ANGULAR_INPUT",
+    "$ANGULAR_OUTPUT",
+    "$ANGULAR_TWO_WAY_BINDING",
+    "$ANGULAR_STRUCTURAL_DIRECTIVE",
+    "$DEFAULT",
+    "^i18n"
+  ],
+  "attributeSort": "ASC"
+}

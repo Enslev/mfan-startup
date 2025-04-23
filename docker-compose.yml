@@ -1,0 +1,55 @@
+services:
+  server:
+    container_name: server
+    build: ./server
+    depends_on:
+      - mongodb
+    expose:
+      - ${SERVER_PORT}
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - SERVER_PORT=${SERVER_PORT}
+      - MONGODB_URL=${MONGODB_URL}
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    volumes:
+      - ./server:/usr/src/server
+    networks:
+      - mongo-network
+    command: npm run dev
+
+  client:
+    container_name: client
+    build: ./client
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - 4200:4200
+    volumes:
+      - ./client:/usr/client/
+      - ./client/public:/usr/client/public
+
+  mongodb:
+    container_name: mongodb
+    image: mongo:7.0
+    environment:
+      - SILENT=true
+    command: ["/bin/sh", "-c", "/usr/local/bin/docker-entrypoint.sh"]
+    ports:
+      - 27017:27017
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - mongo-network
+    volumes:
+      - "mongodb_data:/data/db"
+      - "mongodb_config:/data/configdb" 
+      - ./docker-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh
+
+volumes:
+  mongodb_data:
+  mongodb_config:
+
+networks:
+  mongo-network:
+    driver: bridge
