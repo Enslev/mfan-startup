@@ -14,14 +14,13 @@ export default <FastifyPluginCallback>function (app, opts, done) {
     } satisfies FastifySchema;
 
     app.route({
-        url: '/ping',
+        url: '/echo',
         method: 'POST',
         schema,
         handler: async (
             req: FastifyRequestTypebox<typeof schema>,
             reply: FastifyReplyTypebox<typeof schema>,
         ) => {
-
             await reply.send(req.body.data);
         },
     });

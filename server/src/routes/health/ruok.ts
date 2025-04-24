@@ -18,7 +18,6 @@ export default <FastifyPluginCallback>function (app, opts, done) {
             req: FastifyRequestTypebox<typeof schema>,
             reply: FastifyReplyTypebox<typeof schema>,
         ) => {
-
             await reply.send('iamok');
         },
     });
