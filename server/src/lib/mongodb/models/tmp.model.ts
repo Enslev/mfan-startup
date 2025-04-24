@@ -6,5 +6,5 @@ export class Tmp extends TimeStamps  {
     public name: string;
 }
 
-export const QuizModel = getModelForClass(Tmp);
-export type QuizDocument = DocumentType<Tmp>;
+export const TmpModel = getModelForClass(Tmp);
+export type TmpDocument = DocumentType<Tmp>;
