@@ -20,7 +20,7 @@ This repository provides a simple Docker Compose configuration for running a ful
 2. Start the stack:
 
     ```bash
-    docker-compose up --build
+    docker compose up --build
     ```
 
 3. Access the app:
@@ -62,12 +62,12 @@ This setup uses a single-node Replica Set to enable features like Change Streams
 To stop and remove containers (but not volumes)
 
 ```
-docker-compose down
+docker compose down
 ```
 
 To stop and remove containers, networks, and volumes:
 > ⛔ **This will permanently delete all local data in the database**
 
 ```
-docker-compose down -v
+docker compose down -v
 ```
