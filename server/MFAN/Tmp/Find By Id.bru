@@ -1,0 +1,15 @@
+meta {
+  name: Find By Id
+  type: http
+  seq: 3
+}
+
+get {
+  url: http://localhost:9001/api/tmps/{{documentId}}
+  body: none
+  auth: none
+}
+
+vars:pre-request {
+  documentId: 6809f8597ac868662ac6548d
+}

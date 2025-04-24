@@ -1,0 +1,22 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:9001/api/tmps/{{documentId}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "{{newName}}"
+  }
+}
+
+vars:pre-request {
+  documentId: 6809f8597ac868662ac6548d
+  newName: Test name
+}

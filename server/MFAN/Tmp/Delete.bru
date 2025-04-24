@@ -1,0 +1,15 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: http://localhost:9001/api/tmps/{{documentId}}
+  body: none
+  auth: none
+}
+
+vars:pre-request {
+  documentId: 6809f8637ac868662ac6548f
+}
