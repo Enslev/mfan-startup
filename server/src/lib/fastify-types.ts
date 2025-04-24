@@ -13,7 +13,7 @@ import {
 import mongoose from 'mongoose';
 
 // Return scheam types for values from mongoose
-export const MongooseDateType = Type.Unsafe<Date>({ type: 'string', format: 'date-time' });
+export const MongooseDateType = Type.Optional(Type.Unsafe<Date>({ type: 'string', format: 'date-time' }));
 export const MongooseObjectIdType = Type.Unsafe<mongoose.Types.ObjectId>();
 
 // This is for input validation schema for fastify
