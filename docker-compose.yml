@@ -14,6 +14,7 @@ services:
       - ${SERVER_PORT}:${SERVER_PORT}
     volumes:
       - ./server:/usr/src/server
+      - /usr/src/server/node_modules
     networks:
       - mongo-network
     command: npm run dev
@@ -27,7 +28,7 @@ services:
       - 4200:4200
     volumes:
       - ./client:/usr/client/
-      - ./client/public:/usr/client/public
+      - /usr/client/node_modules
 
   mongodb:
     container_name: mongodb

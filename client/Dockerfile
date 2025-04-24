@@ -1,21 +1,17 @@
 FROM node:22-slim
 
-RUN mkdir /usr/client
 WORKDIR /usr/client
 
-# add `/usr/client/node_modules/.bin` to $PATH
-ENV PATH /usr/client/node_modules/.bin:$PATH
+# Copy only the package files to leverage caching and prevent overwriting
+COPY package*.json ./
 
-# install and cache app dependencies
-COPY package.json /usr/client/package.json
+# Install Angular CLI and dependencies
+RUN npm install -g @angular/cli
 RUN npm install
 
-# add app
-COPY . /usr/client
+# Now copy everything else
+COPY . .
 
 EXPOSE 4200
 
-# start app
-# CMD npm start
-CMD npm start
-
+CMD ["npm", "start"]
